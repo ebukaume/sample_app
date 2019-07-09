@@ -81,7 +81,7 @@ attempts = 500
 votes = 0
 
 attempts.times do |count|
-  thread_count = 5
+  thread_count = 50
   threads = Array.new(thread_count).map { Thread.new{ voter = PearsVoters.new; voter.vote } }
   threads.each { |t| t.join }
 
