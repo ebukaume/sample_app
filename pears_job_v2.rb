@@ -78,7 +78,7 @@ def job
   response = voter.vote
 end
 
-attempts = 1000
+attempts = 1_000_000
 votes = 0
 
 attempts.times do |count|
