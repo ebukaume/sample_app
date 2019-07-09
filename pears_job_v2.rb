@@ -30,6 +30,7 @@ class PearsVoters
   
   def initialize
     @end_point = 'https://pearsbaby.ng/wp-admin/admin-ajax.php'
+    @home = 'https://intense-bastion-98351.herokuapp.com/help'
   end
 
   def vote
@@ -49,11 +50,16 @@ class PearsVoters
       end
   end
 
+  def keep_alive
+    RestClient.get(@home, user_agent: USER_AGENTS.sample)
+    p "Home run succesful!"
+  end
+
   private
 
   def payload
-    contestants = ['18649', '18998'].sample
-    "action=vote_for_photo&photo_id=#{contestants}&nonce_id=2ddef450dc&option_id=basic"
+    contestant = ['18649', '18998'].sample
+    "action=vote_for_photo&photo_id=#{contestant}&nonce_id=2ddef450dc&option_id=basic"
   end
 
   def header
@@ -79,12 +85,15 @@ def job
 end
 
 attempts = 1_000_000
+home_call_interval = 20
 votes = 0
 
 attempts.times do |count|
+  PearsVoters.new.keep_alive if count.modulo(home_call_interval).zero?
+
   thread_count = 50
   threads = Array.new(thread_count).map { Thread.new{ voter = PearsVoters.new; voter.vote } }
-  threads.each { |t| t.join }
+  threads.each { |thread| thread.join }
 
   votes += thread_count
   puts "Total of #{votes} votes attempted for this session!"
