@@ -82,13 +82,13 @@ attempts = 1000
 votes = 0
 
 attempts.times do |count|
-  thread_count = 100
+  thread_count = 50
   threads = Array.new(thread_count).map { Thread.new{ voter = PearsVoters.new; voter.vote } }
   threads.each { |t| t.join }
 
   votes += thread_count
   puts "Total of #{votes} votes attempted for this session!"
-  sleep(0.5)
+  sleep(rand(5))
 end
 
 puts "\nSession ended!"
