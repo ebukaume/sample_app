@@ -52,7 +52,8 @@ class PearsVoters
   private
 
   def payload
-    "action=vote_for_photo&photo_id=18998&nonce_id=2ddef450dc&option_id=basic"
+    contestants = ['18649', '18998'].sample
+    "action=vote_for_photo&photo_id=#{contestants}&nonce_id=2ddef450dc&option_id=basic"
   end
 
   def header
@@ -77,11 +78,11 @@ def job
   response = voter.vote
 end
 
-attempts = 500
+attempts = 1000
 votes = 0
 
 attempts.times do |count|
-  thread_count = 50
+  thread_count = 100
   threads = Array.new(thread_count).map { Thread.new{ voter = PearsVoters.new; voter.vote } }
   threads.each { |t| t.join }
 
