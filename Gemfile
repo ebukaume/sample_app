@@ -6,6 +6,8 @@ ruby '2.6.3'
 gem 'rest-client'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
+# Use jQuery
+gem 'jquery-rails'
 # Use bcrypt
 gem 'bcrypt', '3.1.12'
 # Use bootstrap
