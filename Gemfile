@@ -16,7 +16,7 @@ gem 'faker'
 # Use carrierwave
 gem 'carrierwave', '1.2.2'
 # Use mini_magick
-gem 'mini_magick', '4.7.0'
+gem 'mini_magick', ">= 4.9.4"
 # Use bootstrap
 gem 'bootstrap-sass', '3.4.1'
 # Use will_paginate
