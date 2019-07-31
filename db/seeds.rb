@@ -17,3 +17,10 @@ User.create!(name:  "Admin User",
               activated: true,
               activated_at: Time.zone.now)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+  users.each do |user|
+    user.microposts.create!(content: Faker::Lorem.sentence(5))
+  end
+end

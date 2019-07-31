@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'rest-client'
+gem 'hirb', '~> 0.7.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use jQuery
@@ -12,6 +13,10 @@ gem 'jquery-rails'
 gem 'bcrypt', '3.1.12'
 # Use faker
 gem 'faker'
+# Use carrierwave
+gem 'carrierwave', '1.2.2'
+# Use mini_magick
+gem 'mini_magick', '4.7.0'
 # Use bootstrap
 gem 'bootstrap-sass', '3.4.1'
 # Use will_paginate
@@ -78,6 +83,7 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+  gem 'fog', '1.42'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
