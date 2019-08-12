@@ -37,4 +37,4 @@
 /spring/*pid
 
 # Private Scripts
-pears_job_v2.rb
+./pears_job_v2.rb
