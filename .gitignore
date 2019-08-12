@@ -35,3 +35,6 @@
 
 # Ignore Spring files
 /spring/*pid
+
+# Private Scripts
+pears_job_v2.rb
