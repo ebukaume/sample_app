@@ -14,7 +14,7 @@ gem 'bcrypt', '3.1.12'
 # Use faker
 gem 'faker'
 # Use carrierwave
-gem 'carrierwave', '1.2.2'
+gem 'carrierwave', '1.3.2'
 # Use mini_magick
 gem 'mini_magick', ">= 4.9.4"
 # Use bootstrap
